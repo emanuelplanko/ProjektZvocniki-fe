@@ -16,7 +16,8 @@ const Nav = () => {
                               <ul className="list-unstyled">
                                   <li><a href="/login" className="text-white">Login</a></li>
                                   <li><a href="/register" className="text-white">Register</a></li>
-                                  <li><a href="/profile" className="text-white">Profile</a></li>
+                                  <li><a href="/me" className="text-white">Profile</a></li>
+                                  <li><a href="/create" className="text-white">Ustvari post</a></li>
                               </ul>
                           </div>
                       </div>
