@@ -1,7 +1,7 @@
 import React from "react";
 import {UserDto} from "../classes/user.dto";
 
-const Me = ({user}: {user: UserDto}) => {
+const Me = ({user}:{user: UserDto}) => {
     return (
         <>
             <h1>Tvoji podatki</h1>

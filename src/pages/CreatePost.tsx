@@ -3,7 +3,7 @@ import {Navigate} from "react-router-dom";
 import axios from "axios";
 
 const styleTextarea = {
-    height: "100",
+    height:"100%",
 }
 
 const CreatePost = () => {
@@ -11,14 +11,13 @@ const CreatePost = () => {
     const[title, setTitle] = useState('');
     const[content,setContent] = useState('');
     const[redirect,setRedirect] = useState(false);
-    const[subjectSelected,setSubjectSelected] = useState(0);
+    const[subjectSelected,setSubjectSelected] = useState(1);
 
     const[subjects,setSubjects] = useState([]);
 
     const getSubjects = async () => {
-        const req = await axios.get('http://localhost:8080/subject', {withCredentials:true});
+        const req = await axios.get('http://localhost:8080/subject',{withCredentials:true});
         setSubjects(req.data);
-        //console.log(subjects);
     }
 
     useEffect(() => {
@@ -26,26 +25,26 @@ const CreatePost = () => {
     }, []);
 
     const submit = async (e:SyntheticEvent) => {
-      e.preventDefault();
+        e.preventDefault();
 
-      const data = {
-          title,
-          content,
-          "subject_id":subjectSelected
-      }
+        const data = {
+            title,
+            content,
+            "subject_id":subjectSelected
+        }
 
-      console.log(data);
+        console.log(data);
 
-      const res = await axios.post('http://localhost:8080/post',data,{withCredentials:true});
+        const res = await axios.post('http://localhost:8080/post',data,{withCredentials:true});
 
-      if (res.status == 201) {
-          setRedirect(true);
-      }
+        if (res.status == 201) {
+            setRedirect(true);
+        }
 
     }
 
     if (redirect) {
-        return <Navigate to='/' />
+        return <Navigate to='/' />;
     }
 
     return (
@@ -60,7 +59,7 @@ const CreatePost = () => {
                 </div>
                 <div className="form-floating">
                     <select className="form-control" id="floatingSelect"
-                   onChange={(e: any) => setSubjectSelected(e.target.value)}>
+                            onChange={(e: any) => setSubjectSelected(e.target.value)}>
                         {subjects.map((subject:any, i) => {
                             return (<option value={subject.id} key={subject.id}>{subject.title}</option> );
                         })}
@@ -69,11 +68,11 @@ const CreatePost = () => {
                     <label htmlFor="floatingSelect">Izberi predmet</label>
                 </div>
                 <div className="form-floating">
-                    <textarea className="form-control" id="flotingContent"
+                    <textarea className="form-control" id="floatingContent"
                               rows={8}
                               style={styleTextarea}
                               placeholder="Vnesi vsebino"
-                              onChange={(e) =>setContent(e.target.value)}>
+                              onChange={(e)=>setContent(e.target.value)}>
                     </textarea>
                     <label htmlFor="floatingContent">Vsebina</label>
                 </div>

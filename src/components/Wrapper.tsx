@@ -4,8 +4,7 @@ import Footer from "./Footer";
 
 type Props = {
     children: JSX.Element,
-}
-
+};
 const Wrapper = ({ children }: Props) => {
     return (
         <>
