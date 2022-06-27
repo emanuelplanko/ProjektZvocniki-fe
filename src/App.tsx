@@ -4,16 +4,13 @@ import './App.css';
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Welcome from "./components/Welcome";
-
-
-function Card() {
-  return null;
-}
+import Card from "./components/Card";
 
 function App() {
   return (
     <>
       <Nav />
+
       <main>
         <Welcome />
         <div className="album py-5 bg-light">
