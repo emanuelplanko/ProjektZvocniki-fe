@@ -9,6 +9,7 @@ import CreatePost from "./pages/CreatePost";
 import axios from "axios";
 import {UserDto} from "./classes/user.dto";
 import Me from "./pages/Me";
+import Post from "./pages/Post";
 
 function App() {
   const [user,setUser] = useState<UserDto>(new UserDto(0, '', '', ''));
@@ -45,6 +46,7 @@ function App() {
           <Route path={'/register'} element={<Register />} />
           <Route path={'/create'} element={<CreatePost />} />
           <Route path={'/me'} element={<Me user={user}/>} />
+          <Route path={'/post/:id'} element={<Post />} />
         </Routes>
       </BrowserRouter>
     </Wrapper>
